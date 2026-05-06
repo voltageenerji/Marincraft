@@ -895,149 +895,195 @@
     color: var(--teal);
   }
 
-  /* MAST */
-  .mast {
-    background: var(--paper);
+  /* PROCESS — Sipariş Süreci timeline */
+  .process {
+    background: var(--paper-2);
     color: var(--ink);
     padding: 140px 48px;
     position: relative;
     overflow: hidden;
   }
-  .mast .container {
-    max-width: 1100px;
+  .process .container {
+    max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
   }
-  .mast-text .eyebrow { color: var(--gold); }
-  .mast-text .eyebrow::before { background: var(--gold); }
-  .mast h2 {
+  .process-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 100px;
+  }
+  .process-header .eyebrow { color: var(--teal-deep); }
+  .process-header .eyebrow::before { background: var(--teal-deep); }
+  .process-header h2 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(2.4rem, 4.4vw, 3.8rem);
-    line-height: 1;
+    font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+    line-height: 1.05;
     letter-spacing: -0.025em;
     margin: 22px 0 30px;
     color: var(--ink);
   }
-  .mast h2 em { color: var(--gold); font-style: italic; }
-  .mast-text p {
-    font-size: 1.02rem;
+  .process-header h2 em { color: var(--teal-deep); font-style: italic; }
+  .process-header p {
+    font-size: 1.05rem;
     color: rgba(6, 24, 38, 0.7);
     line-height: 1.75;
-    margin-bottom: 22px;
-    max-width: 480px;
+    max-width: 600px;
+    margin: 0 auto;
   }
-  .mast-detail {
-    margin-top: 30px;
-    padding: 24px;
-    background: rgba(201, 163, 90, 0.1);
-    border-left: 3px solid var(--gold);
-    font-size: 0.92rem;
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+    padding-top: 30px;
   }
-  .mast-detail strong { color: var(--ink); }
-  .mast-form {
-    background: var(--ink);
-    padding: 50px 44px;
-    color: var(--cream);
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 38px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(14, 110, 114, 0.4) 10%, rgba(14, 110, 114, 0.4) 90%, transparent);
+    z-index: 1;
   }
-  .mast-form-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
+  .step {
+    text-align: center;
+    padding: 0 18px;
+    position: relative;
+    z-index: 2;
   }
-  .mast-form h3 {
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--teal-deep);
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+  }
+  .step-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--paper-2);
+    border: 2px solid var(--teal-deep);
+    margin: 0 auto 30px;
+    transition: all 0.4s;
+  }
+  .step:hover .step-marker {
+    background: var(--teal-deep);
+    transform: scale(1.15);
+  }
+  .step h3 {
     font-family: 'Fraunces', serif;
     font-weight: 400;
-    font-size: 1.6rem;
-    margin-bottom: 32px;
-    letter-spacing: -0.015em;
-  }
-  .form-row { margin-bottom: 22px; }
-  .form-row label {
-    display: block;
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(244, 237, 224, 0.55);
-    margin-bottom: 8px;
-  }
-  .form-row input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--line);
-    padding: 10px 0;
-    color: var(--cream);
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.95rem;
-    transition: border-color 0.3s;
-  }
-  .form-row input:focus {
-    outline: none;
-    border-bottom-color: var(--gold);
-  }
-  .checkbox-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 26px;
-    font-size: 0.82rem;
-    color: rgba(244, 237, 224, 0.7);
-    line-height: 1.5;
-  }
-  .checkbox-row input { width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0; }
-  .checkbox-row label {
-    margin: 0;
-    letter-spacing: 0;
-    text-transform: none;
-    font-size: 0.82rem;
-    color: rgba(244, 237, 224, 0.7);
-  }
-  .checkbox-row a { color: var(--gold); text-decoration: underline; }
-  .submit-btn {
-    background: var(--gold);
+    font-size: 1.4rem;
     color: var(--ink);
-    border: none;
-    padding: 16px 32px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .step-meta {
+    display: block;
+    font-size: 0.66rem;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
+    color: var(--teal-deep);
+    margin-bottom: 18px;
+    font-weight: 500;
   }
-  .submit-btn:hover { background: var(--cream); transform: translateX(4px); }
-  .submit-btn:disabled { opacity: 0.5; cursor: wait; }
+  .step p {
+    font-size: 0.92rem;
+    color: rgba(6, 24, 38, 0.7);
+    line-height: 1.7;
+  }
 
-  .form-msg {
-    margin-top: 22px;
-    padding: 14px 18px;
-    font-size: 0.9rem;
-    border-radius: 2px;
-    display: none;
+  /* FAQ — Sıkça Sorulanlar */
+  .faq {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 140px 48px;
+    position: relative;
+    overflow: hidden;
   }
-  .form-msg.success {
-    display: block;
-    background: rgba(32, 179, 182, 0.15);
-    border-left: 3px solid var(--teal);
-    color: var(--cream);
+  .faq .container {
+    max-width: 920px;
+    margin: 0 auto;
   }
-  .form-msg.error {
-    display: block;
-    background: rgba(220, 80, 60, 0.15);
-    border-left: 3px solid #dc503c;
-    color: var(--cream);
+  .faq-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 80px;
   }
+  .faq-header .eyebrow { color: var(--teal-deep); }
+  .faq-header .eyebrow::before { background: var(--teal-deep); }
+  .faq-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 22px 0 24px;
+    color: var(--ink);
+  }
+  .faq-header h2 em { color: var(--teal-deep); font-style: italic; }
+  .faq-header p {
+    font-size: 1.02rem;
+    color: rgba(6, 24, 38, 0.7);
+    line-height: 1.7;
+  }
+  .faq-list {
+    border-top: 1px solid rgba(6, 24, 38, 0.12);
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(6, 24, 38, 0.12);
+  }
+  .faq-item summary {
+    padding: 26px 8px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 56px 1fr 32px;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    transition: padding 0.3s;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { padding-left: 14px; }
+  .faq-q-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--teal-deep);
+    font-weight: 500;
+  }
+  .faq-q-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.18rem;
+    color: var(--ink);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+  }
+  .faq-toggle {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--teal-deep);
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+    font-weight: 300;
+    line-height: 1;
+  }
+  .faq-item[open] .faq-toggle { transform: rotate(45deg); }
+  .faq-answer {
+    padding: 0 8px 30px 76px;
+    font-size: 0.96rem;
+    color: rgba(6, 24, 38, 0.72);
+    line-height: 1.78;
+    max-width: 760px;
+  }
+  .faq-answer p { margin-bottom: 12px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
 
   /* WHATSAPP FLOATING BUTTON */
   .wa-btn {
@@ -1101,262 +1147,6 @@
     50% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 14px rgba(37, 211, 102, 0); }
   }
 
-  /* KVKK MODAL */
-  .kvkk-link {
-    background: none;
-    border: none;
-    color: var(--gold);
-    font: inherit;
-    text-decoration: underline;
-    cursor: pointer;
-    padding: 0;
-    letter-spacing: 0;
-    text-transform: none;
-  }
-  .kvkk-link:hover { color: var(--cream); }
-
-  .kvkk-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  .kvkk-modal.open {
-    display: flex;
-    opacity: 1;
-  }
-  .kvkk-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(6, 24, 38, 0.88);
-    backdrop-filter: blur(8px);
-    cursor: pointer;
-  }
-  .kvkk-content {
-    position: relative;
-    background: var(--cream);
-    color: var(--ink);
-    width: 100%;
-    max-width: 760px;
-    max-height: 88vh;
-    overflow-y: auto;
-    padding: 60px 60px 50px;
-    border-radius: 2px;
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
-    transform: translateY(20px) scale(0.98);
-    transition: transform 0.4s cubic-bezier(0.2, 0.6, 0.2, 1);
-    z-index: 1;
-  }
-  .kvkk-modal.open .kvkk-content {
-    transform: translateY(0) scale(1);
-  }
-
-  /* Modal scrollbar styling */
-  .kvkk-content::-webkit-scrollbar { width: 8px; }
-  .kvkk-content::-webkit-scrollbar-track { background: rgba(6,24,38,0.04); }
-  .kvkk-content::-webkit-scrollbar-thumb {
-    background: rgba(14, 110, 114, 0.3);
-    border-radius: 4px;
-  }
-  .kvkk-content::-webkit-scrollbar-thumb:hover { background: rgba(14, 110, 114, 0.5); }
-
-  .kvkk-close {
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 1px solid rgba(6, 24, 38, 0.15);
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink);
-    font-size: 1.2rem;
-    line-height: 1;
-    transition: all 0.3s;
-    z-index: 2;
-  }
-  .kvkk-close:hover {
-    background: var(--ink);
-    color: var(--cream);
-    border-color: var(--ink);
-    transform: rotate(90deg);
-  }
-
-  .kvkk-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--teal-deep);
-    font-weight: 500;
-    margin-bottom: 12px;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .kvkk-eyebrow::before {
-    content: '';
-    width: 28px;
-    height: 1px;
-    background: var(--teal-deep);
-    display: inline-block;
-  }
-
-  .kvkk-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 30px;
-    color: var(--ink);
-  }
-  .kvkk-title em { color: var(--teal-deep); font-style: italic; font-weight: 300; }
-
-  .kvkk-greeting {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 1.05rem;
-    color: var(--teal-deep);
-    border-left: 2px solid var(--teal-deep);
-    padding: 4px 0 4px 18px;
-    margin-bottom: 28px;
-    line-height: 1.6;
-  }
-  .kvkk-greeting strong {
-    font-style: normal;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    color: var(--ink);
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .kvkk-body p {
-    font-size: 0.94rem;
-    color: rgba(6, 24, 38, 0.78);
-    line-height: 1.75;
-    margin-bottom: 18px;
-  }
-  .kvkk-body p strong { color: var(--ink); font-weight: 500; }
-  .kvkk-body h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 1.05rem;
-    color: var(--ink);
-    margin: 26px 0 12px;
-    letter-spacing: -0.005em;
-  }
-  .kvkk-body ol {
-    list-style: none;
-    counter-reset: kvkk;
-    margin: 14px 0 22px;
-    padding: 0;
-  }
-  .kvkk-body ol li {
-    position: relative;
-    padding: 8px 0 8px 32px;
-    font-size: 0.92rem;
-    color: rgba(6, 24, 38, 0.78);
-    line-height: 1.6;
-    border-bottom: 1px solid rgba(6, 24, 38, 0.06);
-  }
-  .kvkk-body ol li:last-child { border-bottom: none; }
-  .kvkk-body ol li::before {
-    counter-increment: kvkk;
-    content: counter(kvkk, lower-alpha) ".";
-    position: absolute;
-    left: 0;
-    top: 8px;
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    color: var(--teal-deep);
-    font-weight: 500;
-    font-size: 0.95rem;
-    width: 24px;
-  }
-
-  .kvkk-veri-sorumlusu {
-    margin-top: 36px;
-    padding: 24px 28px;
-    background: rgba(14, 110, 114, 0.08);
-    border-left: 3px solid var(--teal-deep);
-  }
-  .kvkk-veri-sorumlusu .label {
-    font-size: 0.7rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--teal-deep);
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-  .kvkk-veri-sorumlusu .name {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 1.05rem;
-    color: var(--ink);
-    letter-spacing: 0.02em;
-  }
-
-  .kvkk-actions {
-    margin-top: 36px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(6, 24, 38, 0.1);
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .kvkk-accept {
-    background: var(--teal-deep);
-    color: var(--cream);
-    border: none;
-    padding: 14px 28px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.74rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .kvkk-accept:hover { background: var(--ink); transform: translateX(4px); }
-  .kvkk-cancel {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid rgba(6, 24, 38, 0.2);
-    padding: 14px 28px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.74rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .kvkk-cancel:hover { background: rgba(6, 24, 38, 0.06); }
-
-  body.modal-open { overflow: hidden; }
-
-  @media (max-width: 700px) {
-    .kvkk-content { padding: 50px 28px 40px; max-height: 92vh; }
-    .kvkk-close { top: 14px; right: 14px; }
-    .kvkk-actions { flex-direction: column; }
-    .kvkk-accept, .kvkk-cancel { width: 100%; justify-content: center; text-align: center; }
-  }
 
   /* CONTACT */
   .contact {
@@ -1653,10 +1443,10 @@
     .stats-band { padding: 40px 22px; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
     .stat { border-right: none; padding: 0; }
-    .intro, .gallery-section, .specs-section, .equipment-section, .interior, .tersane, .quote-section, .mast, .contact, .brand-marks {
+    .intro, .gallery-section, .specs-section, .equipment-section, .interior, .tersane, .quote-section, .process, .faq, .contact, .brand-marks {
       padding: 90px 22px;
     }
-    .intro-grid, .gallery-header, .eq-header, .interior-header, .tersane-header, .mast .container, .eq-grid {
+    .intro-grid, .gallery-header, .eq-header, .interior-header, .tersane-header, .eq-grid {
       grid-template-columns: 1fr;
       gap: 40px;
     }
@@ -1672,6 +1462,51 @@
     .craft-pillars { grid-template-columns: 1fr; }
     .pillar { padding: 36px 0 !important; border-right: none; border-bottom: 1px solid var(--line); }
     .pillar:last-child { border-bottom: none; }
+
+    /* Process: dikey timeline mobilde */
+    .process-header { margin-bottom: 60px; }
+    .process-timeline {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-top: 0;
+      padding-left: 36px;
+    }
+    .process-timeline::before {
+      top: 8px;
+      bottom: 8px;
+      left: 7px;
+      right: auto;
+      width: 1px;
+      height: auto;
+      background: linear-gradient(to bottom, transparent, rgba(14, 110, 114, 0.4) 5%, rgba(14, 110, 114, 0.4) 95%, transparent);
+    }
+    .step {
+      text-align: left;
+      padding: 0 0 44px 0;
+      position: relative;
+    }
+    .step:last-child { padding-bottom: 0; }
+    .step-num { text-align: left; margin-bottom: 6px; }
+    .step-marker {
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      margin: 0;
+    }
+
+    /* FAQ mobilde */
+    .faq-header { margin-bottom: 50px; }
+    .faq-item summary {
+      grid-template-columns: 32px 1fr 24px;
+      gap: 14px;
+      padding: 22px 4px;
+    }
+    .faq-item summary:hover { padding-left: 4px; }
+    .faq-q-num { font-size: 0.85rem; }
+    .faq-q-text { font-size: 1.04rem; }
+    .faq-toggle { font-size: 1.4rem; }
+    .faq-answer { padding: 0 4px 24px 46px; font-size: 0.92rem; }
+
     .contact-grid, .marks-grid { grid-template-columns: 1fr; }
     .tersane-map-wrap iframe { height: 340px; }
     .tersane-map-overlay {
@@ -1717,7 +1552,8 @@
     <li><a href="#equipment" data-i18n="nav_equipment">Donanım</a></li>
     <li><a href="#interior" data-i18n="nav_interior">Kabin</a></li>
     <li><a href="#tersane" data-i18n="nav_tersane">Tersane</a></li>
-    <li data-lang-only="tr"><a href="#mast">MAST 2026</a></li>
+    <li><a href="#process" data-i18n="nav_process">Sipariş</a></li>
+    <li><a href="#faq" data-i18n="nav_faq">SSS</a></li>
     <li><a href="#contact" data-i18n="nav_contact">İletişim</a></li>
   </ul>
   <div class="nav-right">
@@ -1741,8 +1577,7 @@
     <p class="hero-lede" data-i18n="hero_lede">8.10 metre. İki yetişkin, iki çocuk. Bir kabin, bir mutfak, sınırsız bir Akdeniz. Marincraft tersanesinden elle inşa edildi.</p>
     <div class="hero-actions">
       <a href="#sally" class="btn-primary" data-i18n="hero_cta1">Sally'i Tanıyın →</a>
-      <a href="#mast" class="btn-ghost" data-lang-only="tr">MAST 2026'da Buluşalım</a>
-      <a href="#contact" class="btn-ghost" data-lang-only="en" data-i18n="hero_cta2_en" style="display:none">Get in Touch</a>
+      <a href="#process" class="btn-ghost" data-i18n="hero_cta2">Sipariş Sürecine Bakın</a>
     </div>
   </div>
   <div class="hero-corner">
@@ -1983,40 +1818,128 @@
   <div class="quote-attr reveal" data-i18n="quote_attr">— Marincraft, Menderes Tersanesi</div>
 </section>
 
-<!-- MAST -->
-<section class="mast" id="mast" data-lang-only="tr">
+<!-- PROCESS — Sipariş Süreci -->
+<section class="process" id="process">
   <div class="container">
-    <div class="mast-text reveal">
-      <span class="eyebrow">İzmir MAST 2026</span>
-      <h2>Sally'i <em>yakından</em> görün.</h2>
-      <p>Sally 24, MAST 2026 İzmir Uluslararası Yat ve Tekne Fuarı'nda ziyaretçilerimizi bekliyor. Tersanenin işçiliğini elinizle hissetmek, kabini içeriden gezmek ve sorularınızı bizzat sormak için davetlisiniz.</p>
-      <p>Aşağıdaki formu doldurarak fuardaki standımıza özel ziyaretçi geçişinizi ayırtın — geleceğinizi önceden bildirmeniz, daha sıcak bir karşılama için yeterli.</p>
-      <div class="mast-detail">
-        <strong>Fuar:</strong> MAST 2026 · İzmir<br/>
-        <strong>Stand:</strong> Marincraft Tersanesi · Sally 24 ile
+    <div class="process-header reveal">
+      <span class="eyebrow" data-i18n="process_eyebrow">Sipariş Süreci</span>
+      <h2 data-i18n="process_h2">5 adımda <em>Sally</em> sahibi olmak.</h2>
+      <p data-i18n="process_p">Sally bir gecede sipariş edilmez. Süreç, atölyemizde başlayan bir tanışmadan teslim günü anahtarın elinizde olmasına kadar; düzenli, açık ve birlikte ilerler.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="step reveal">
+        <div class="step-num">i.</div>
+        <div class="step-marker"></div>
+        <h3 data-i18n="step1_h3">Görüşme</h3>
+        <span class="step-meta" data-i18n="step1_meta">Tersane Ziyareti</span>
+        <p data-i18n="step1_p">Atölyemizde tanışma. Çay eşliğinde Sally'i konuşur, kullanım planınızı ve beklentilerinizi dinleriz.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">ii.</div>
+        <div class="step-marker"></div>
+        <h3 data-i18n="step2_h3">Tasarım</h3>
+        <span class="step-meta" data-i18n="step2_meta">Kişiselleştirme</span>
+        <p data-i18n="step2_p">Renk, iç döşeme, opsiyonel donanım. Sally'i sahibinin tarzına yakınlaştırma aşaması.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">iii.</div>
+        <div class="step-marker"></div>
+        <h3 data-i18n="step3_h3">Sözleşme</h3>
+        <span class="step-meta" data-i18n="step3_meta">Yazıya Dökme</span>
+        <p data-i18n="step3_p">Detaylar, üretim takvimi ve ödeme planı netleşir. Sipariş avansı bu aşamada alınır.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">iv.</div>
+        <div class="step-marker"></div>
+        <h3 data-i18n="step4_h3">Üretim</h3>
+        <span class="step-meta" data-i18n="step4_meta">Tersanede İnşa</span>
+        <p data-i18n="step4_p">Karina yatırımı, üst yapı, sistem entegrasyonu, son cilâ. Ortalama 8–10 ay süren el işçiliği.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">v.</div>
+        <div class="step-marker"></div>
+        <h3 data-i18n="step5_h3">Teslim</h3>
+        <span class="step-meta" data-i18n="step5_meta">Sea Trial &amp; Anahtar</span>
+        <p data-i18n="step5_p">Deniz testi, teslim tutanağı, anahtar teslimi. Sally artık sizin.</p>
       </div>
     </div>
-    <form class="mast-form reveal" id="mastForm">
-      <div class="mast-form-eyebrow">MAST 2026 · Ziyaretçi Formu</div>
-      <h3>Stantta görüşelim.</h3>
+  </div>
+</section>
 
-      <!-- Web3Forms gerekli alanlar -->
-      <input type="hidden" name="access_key" value="62d5b294-c988-416b-9638-ebce4ac489f9" />
-      <input type="hidden" name="subject" value="Yeni MAST 2026 Ziyaretçi Kaydı — Sally 24" />
-      <input type="hidden" name="from_name" value="Marincraft Sally 24 — Web Sitesi" />
-      <!-- Spam koruması (botlar bu alanı doldurur, gerçek kullanıcı görmez) -->
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
-
-      <div class="form-row"><label>Ad Soyad *</label><input type="text" name="name" required /></div>
-      <div class="form-row"><label>E-posta</label><input type="email" name="email" /></div>
-      <div class="form-row"><label>Cep Telefonu *</label><input type="tel" name="phone" required placeholder="+90" /></div>
-      <div class="checkbox-row">
-        <input type="checkbox" id="kvkk" name="kvkk_onay" value="Onaylandı" required />
-        <label for="kvkk"><button type="button" class="kvkk-link" id="kvkkOpen">KVKK Aydınlatma Metni</button>'ni okudum ve onaylıyorum. *</label>
-      </div>
-      <button type="submit" class="submit-btn" id="mastSubmit">Kaydet →</button>
-      <div id="mastFormMsg" class="form-msg"></div>
-    </form>
+<!-- FAQ — Sıkça Sorulanlar -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <span class="eyebrow" data-i18n="faq_eyebrow">Sıkça Sorulanlar</span>
+      <h2 data-i18n="faq_h2">Aklınıza takılan <em>her şey.</em></h2>
+      <p data-i18n="faq_p">Tekne almak ömürlük bir karardır. Aklınıza gelebilecek hemen her sorunun cevabı aşağıda — değilse, bizi arayın.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">01</span>
+          <span class="faq-q-text" data-i18n="faq1_q">Sally 24'ün teslim süresi ne kadar?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq1_a"><p>Sözleşme imzasından teslim anına kadar ortalama 8–10 ay. Bu süre üretim takviminin yoğunluğuna ve seçtiğiniz opsiyonel donanımlara göre değişebilir; net bir tarih sözleşme aşamasında yazılı olarak belirlenir.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">02</span>
+          <span class="faq-q-text" data-i18n="faq2_q">Sally'i kişiselleştirebilir miyim? Hangi seçenekler var?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq2_a"><p>Evet. Tekne renk paletini, iç döşeme tonlarını, ahşap kaplamayı ve opsiyonel donanım kalemlerini sahibinin tercihine göre seçiyoruz. Renk ve donanım seçimleri, üretimin ilgili aşamasından önce kesinleştirilir; sonradan değişiklik istenirse Tarafların yazılı mutabakatı ile uygulanabilir.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">03</span>
+          <span class="faq-q-text" data-i18n="faq3_q">Ödeme planı nasıl işliyor?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq3_a"><p>Toplam bedeli 4 aşamada öderiz: sipariş avansı, omurga yatırımı, üst yapı montajı, ve teslim. Her aşamadaki yüzdeler sözleşmede netleştirilir. Tüm ödemeler EFT/havale ile, OOE Yatçılık'ın banka hesabına yapılır.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">04</span>
+          <span class="faq-q-text" data-i18n="faq4_q">Garanti süresi nedir? Servisi nasıl alıyorum?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq4_a"><p>Marincraft tarafından imal edilen tüm bileşenler için teslim tarihinden itibaren 24 ay genel garanti veriyoruz. Motor, jeneratör ve elektronik aksam gibi üçüncü taraf donanımlar, ilgili üreticinin garanti süresine tabidir. Garanti kapsamındaki tamir veya bakımlar Marincraft tersanesinde, masraflar bize ait olmak üzere yapılır.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">05</span>
+          <span class="faq-q-text" data-i18n="faq5_q">Atölyeyi ziyaret edebilir miyim?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq5_a"><p>Tabii ki. Sally hakkında konuşmak için en güzel yer tersane. Bir telefon ya da WhatsApp mesajı ile randevulaşıp Menderes'e gelebilirsiniz; bir çayın eşliğinde teknenin yapımını görür, sorularınızı bizzat sorabilirsiniz.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">06</span>
+          <span class="faq-q-text" data-i18n="faq6_q">Tekneyi teslim öncesi denemek mümkün mü?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq6_a"><p>Evet, teslim öncesi sea trial / deniz testi yapıyoruz. Minimum 2 saatlik test sırasında motor performansı, sistem fonksiyonları ve seyir özellikleri sizin huzurunuzda kontrol edilir. Onayınız teslimın ön şartıdır.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">07</span>
+          <span class="faq-q-text" data-i18n="faq7_q">Tekne nereye teslim ediliyor?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq7_a"><p>Standart teslim yeri Marincraft tersanesi (Menderes / İzmir). İsterseniz, nakliye ve sigorta masrafları size ait olmak üzere başka bir limana da teslim edebiliriz.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-num">08</span>
+          <span class="faq-q-text" data-i18n="faq8_q">Hangi belgeler tekne ile birlikte veriliyor?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <div class="faq-answer" data-i18n="faq8_a"><p>Teslim anında tüm belgeler tarafınıza iletilir: garanti belgeleri, üretici kullanım kılavuzları, sicil/karine bilgileri (HIN), motor ve donanım sertifikaları, sea trial protokolü ve teslim tutanağı.</p></div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -2098,63 +2021,6 @@
   </div>
 </section>
 
-<!-- KVKK MODAL -->
-<div class="kvkk-modal" id="kvkkModal" role="dialog" aria-modal="true" aria-labelledby="kvkkTitle" aria-hidden="true">
-  <div class="kvkk-overlay" data-kvkk-close></div>
-  <div class="kvkk-content">
-    <button type="button" class="kvkk-close" data-kvkk-close aria-label="Kapat">×</button>
-
-    <span class="kvkk-eyebrow">Aydınlatma Metni</span>
-    <h2 class="kvkk-title" id="kvkkTitle">KVKK <em>Bilgilendirme</em> Metni</h2>
-
-    <div class="kvkk-greeting">
-      <strong>Değerli Müşterilerimiz;</strong>
-      Kişisel Verilerin Korunması Kanunu ile ilgili olarak sizleri bilgilendirmek isteriz.
-    </div>
-
-    <div class="kvkk-body">
-      <p>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) hükümleri gereği kimliğinizi belirli veya belirlenebilir kılan her türlü bilginiz, Kişisel Veri olarak aşağıdaki kapsamda, Veri Sorumlusu sıfatıyla <strong>OOE Yatçılık Sanayi ve Ticaret Limited Şirketi</strong> tarafından işlenecektir. Kişisel Verilerinizin İşlenmesi ise bu verilerin elde edilmesi, kaydedilmesi, depolanması, muhafaza edilmesi, değiştirilmesi, yeniden düzenlenmesi, açıklanması, aktarılması, devralınması, elde edilebilir hale getirilmesi, sınıflandırılması ya da kullanılmasının engellenmesi gibi veriler üzerinde gerçekleştirilen her türlü işlemi ifade etmektedir.</p>
-
-      <p>OOE Yatçılık Sanayi ve Ticaret Limited Şirketi olarak kişisel verilerinizin güvenliğine en üst düzeyde önem vererek, sizlere sunduğumuz hizmetlerimizde kişisel verilerinizin güvenliğinin ön planda olduğu bilinciyle faaliyetlerimize devam ettiğimizi belirtmek isteriz.</p>
-
-      <p>Kişisel verilerinizin hizmetlerimizde kullanılması sırasında özel hayatınızın gizliliği ve temel hak ve özgürlüklerin korunması temel prensibimizdir.</p>
-
-      <h4>Kişisel Verilerinizin İşlenme Amaçları ve Hukuki Sebepleri</h4>
-      <p>Kurumumuzun bağlı bulunduğu kanun ve ilgili mevzuatları kapsamında sizlere sunulacak hizmetlerde kullanılmak, hizmetlerimizi gerçekleştirmek bu kapsamda her türlü iş ve işlemin sahibini ve muhatabını belirlemek üzere bilgilerini tespit için KVKK kapsamında kişisel veri olarak nitelendirilen kimlik bilgileriniz, adres, telefon numaranız, vergi numaranız ve diğer bilgileri kaydetmek, kağıt üzerinde ya da elektronik ortamda gerçekleştirilecek iş ve işlemlere dayanak olacak bilgi ve belgeleri düzenlemek, ilgili mevzuat uyarınca adli ve idari tüm yetkili makamlara öngörülen bilgi saklama, raporlama ve bilgilendirme yükümlülüklerine uymak, bağlı bulunduğumuz kanunlar kapsamındaki hizmetlerimizi yerine getirebilmek, Kurumumuzca sunulan veya talep edilen başka hizmetlerimizi sunabilmektir.</p>
-
-      <h4>Kişisel Verilerinizin Aktarılması</h4>
-      <p>Kurumumuz nezdinde bulunan kişisel verileriniz bağlı bulunduğumuz kanun, sair kanun ve sair mevzuat hükümlerinin zorunlu kıldığı/izin verdiği kişi, kurum ve/veya kuruluşlarla; vatandaşlara sunulmakta olan hizmetlerin yürütülmesi amacıyla faaliyetlerimizi yürütmek üzere hizmet alınan üçüncü taraflara yasal sınırlamalar çerçevesinde aktarılabilecektir.</p>
-
-      <h4>Kişisel Verilerin Toplanma Yöntemi</h4>
-      <p>Kişisel verileriniz ilgili mevzuatlar uyarınca onay ve/veya imzanızla tanzim edilen işlemlere ilişkin tüm beyanname/bilgilendirme formları ve sair belgelerle, elektronik onay ve/veya imzanız ile yapacağınız bildirimlerle, Kurumumuz, hizmet birimleri, Web Sayfaları, Çağrı Merkezi, Kiosklar gibi kanallar aracılığı ile sözlü, yazılı veya elektronik ortamda olmak kaydıyla çeşitli yöntemlerle toplanmaktadır.</p>
-
-      <h4>Kanun'un 11. Maddesi Uyarınca Haklarınız</h4>
-      <p>Kurumumuza başvurmak suretiyle kişisel verilerinizin;</p>
-      <ol>
-        <li>İşlenip işlenmediğini öğrenme,</li>
-        <li>İşlenmişse bilgi talep etme,</li>
-        <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
-        <li>Yurt içinde/yurt dışında aktarıldığı 3. kişileri bilme,</li>
-        <li>Eksik/yanlış işlenmişse düzeltilmesini isteme,</li>
-        <li>KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde silinmesini/yok edilmesini isteme,</li>
-        <li>(e) ve (f) maddeleri uyarınca yapılan işlemlerin, kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
-        <li>Münhasıran otomatik sistemler ile analiz edilmesi nedeniyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme,</li>
-        <li>Kanuna aykırı işlenmesi sebebiyle zarara uğramanız hâlinde zararınızın giderilmesini talep etme hakkına sahipsiniz.</li>
-      </ol>
-
-      <div class="kvkk-veri-sorumlusu">
-        <div class="label">Kanun Kapsamında Başvuru Yapabileceğiniz Veri Sorumlusu</div>
-        <div class="name">OOE Yatçılık Sanayi ve Ticaret Limited Şirketi</div>
-      </div>
-    </div>
-
-    <div class="kvkk-actions">
-      <button type="button" class="kvkk-accept" id="kvkkAccept">Okudum, Onaylıyorum →</button>
-      <button type="button" class="kvkk-cancel" data-kvkk-close>Kapat</button>
-    </div>
-  </div>
-</div>
-
 <!-- WHATSAPP FLOATING BUTTON -->
 <a href="https://wa.me/905325036939?text=Merhaba%2C%20Sally%2024%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" class="wa-btn" aria-label="WhatsApp ile yazın">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -2183,7 +2049,7 @@
       <h4 data-i18n="footer_workshop_h4">Tersane</h4>
       <ul>
         <li><a href="#tersane" data-i18n="footer_handcraft">El İşçiliği</a></li>
-        <li data-lang-only="tr"><a href="#mast">MAST 2026</a></li>
+        <li><a href="#process" data-i18n="footer_process">Sipariş Süreci</a></li>
         <li><a href="#contact" data-i18n="footer_visit">Ziyaret</a></li>
       </ul>
     </div>
@@ -2221,87 +2087,6 @@
     }
   });
 
-  // ──── MAST 2026 form gönderimi (Web3Forms) ────
-  const mastForm = document.getElementById('mastForm');
-  const mastMsg  = document.getElementById('mastFormMsg');
-  const mastBtn  = document.getElementById('mastSubmit');
-
-  mastForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    mastMsg.className = 'form-msg';
-    mastMsg.textContent = '';
-    mastBtn.disabled = true;
-    mastBtn.textContent = 'Gönderiliyor...';
-
-    const formData = new FormData(mastForm);
-    const json = Object.fromEntries(formData.entries());
-
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(json)
-      });
-      const data = await res.json();
-      if (data.success) {
-        mastMsg.className = 'form-msg success';
-        mastMsg.innerHTML = '<strong>Kaydınız alındı.</strong> MAST 2026\'da görüşmek üzere — en kısa sürede sizinle iletişime geçeceğiz.';
-        mastForm.reset();
-        mastBtn.textContent = 'Kaydet →';
-      } else {
-        mastMsg.className = 'form-msg error';
-        mastMsg.innerHTML = '<strong>Bir sorun oluştu.</strong> Lütfen biraz sonra tekrar deneyin veya bizi +90 532 503 6939\'dan arayın.';
-        mastBtn.textContent = 'Tekrar Dene →';
-      }
-    } catch (err) {
-      mastMsg.className = 'form-msg error';
-      mastMsg.innerHTML = '<strong>Bağlantı hatası.</strong> İnternet bağlantınızı kontrol edip tekrar deneyin.';
-      mastBtn.textContent = 'Tekrar Dene →';
-    } finally {
-      mastBtn.disabled = false;
-    }
-  });
-
-  // ──── KVKK Modal ────
-  const kvkkModal  = document.getElementById('kvkkModal');
-  const kvkkOpen   = document.getElementById('kvkkOpen');
-  const kvkkAccept = document.getElementById('kvkkAccept');
-  const kvkkCheck  = document.getElementById('kvkk');
-
-  function openKvkk() {
-    kvkkModal.classList.add('open');
-    kvkkModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
-    // Reset scroll inside modal to top
-    const content = kvkkModal.querySelector('.kvkk-content');
-    if (content) content.scrollTop = 0;
-  }
-  function closeKvkk() {
-    kvkkModal.classList.remove('open');
-    kvkkModal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
-  }
-
-  kvkkOpen.addEventListener('click', openKvkk);
-
-  // Close on overlay/X/Cancel button click
-  kvkkModal.querySelectorAll('[data-kvkk-close]').forEach(el => {
-    el.addEventListener('click', closeKvkk);
-  });
-
-  // Accept = close + tick the checkbox
-  kvkkAccept.addEventListener('click', () => {
-    kvkkCheck.checked = true;
-    closeKvkk();
-  });
-
-  // ESC closes modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && kvkkModal.classList.contains('open')) {
-      closeKvkk();
-    }
-  });
-
   // ──── i18n: TR/EN dil değiştirme ────
   const i18n = {
     tr: {
@@ -2311,6 +2096,8 @@
       nav_equipment: 'Donanım',
       nav_interior: 'Kabin',
       nav_tersane: 'Tersane',
+      nav_process: 'Sipariş',
+      nav_faq: 'SSS',
       nav_contact: 'İletişim',
       nav_cta: 'Bize Ulaşın',
 
@@ -2319,7 +2106,7 @@
       hero_h1: 'Sally<span class="num">24</span><br/><em>denizin küçük lütfu.</em>',
       hero_lede: '8.10 metre. İki yetişkin, iki çocuk. Bir kabin, bir mutfak, sınırsız bir Akdeniz. Marincraft tersanesinden elle inşa edildi.',
       hero_cta1: 'Sally\'i Tanıyın →',
-      hero_cta2_en: 'Get in Touch',
+      hero_cta2: 'Sipariş Sürecine Bakın',
       scroll_cue: 'Aşağı Kaydır',
 
       // STATS
@@ -2432,6 +2219,7 @@
       footer_cabin: 'Kabin İçi',
       footer_workshop_h4: 'Tersane',
       footer_handcraft: 'El İşçiliği',
+      footer_process: 'Sipariş Süreci',
       footer_visit: 'Ziyaret',
       footer_contact_h4: 'İletişim',
       footer_copyright: '© 2026 Marincraft Tekne — Menderes / İzmir',
@@ -2439,6 +2227,47 @@
 
       // WhatsApp
       wa_label: 'WhatsApp ile yazın',
+
+      // PROCESS
+      process_eyebrow: 'Sipariş Süreci',
+      process_h2: '5 adımda <em>Sally</em> sahibi olmak.',
+      process_p: 'Sally bir gecede sipariş edilmez. Süreç, atölyemizde başlayan bir tanışmadan teslim günü anahtarın elinizde olmasına kadar; düzenli, açık ve birlikte ilerler.',
+      step1_h3: 'Görüşme',
+      step1_meta: 'Tersane Ziyareti',
+      step1_p: 'Atölyemizde tanışma. Çay eşliğinde Sally\'i konuşur, kullanım planınızı ve beklentilerinizi dinleriz.',
+      step2_h3: 'Tasarım',
+      step2_meta: 'Kişiselleştirme',
+      step2_p: 'Renk, iç döşeme, opsiyonel donanım. Sally\'i sahibinin tarzına yakınlaştırma aşaması.',
+      step3_h3: 'Sözleşme',
+      step3_meta: 'Yazıya Dökme',
+      step3_p: 'Detaylar, üretim takvimi ve ödeme planı netleşir. Sipariş avansı bu aşamada alınır.',
+      step4_h3: 'Üretim',
+      step4_meta: 'Tersanede İnşa',
+      step4_p: 'Karina yatırımı, üst yapı, sistem entegrasyonu, son cilâ. Ortalama 8–10 ay süren el işçiliği.',
+      step5_h3: 'Teslim',
+      step5_meta: 'Sea Trial &amp; Anahtar',
+      step5_p: 'Deniz testi, teslim tutanağı, anahtar teslimi. Sally artık sizin.',
+
+      // FAQ
+      faq_eyebrow: 'Sıkça Sorulanlar',
+      faq_h2: 'Aklınıza takılan <em>her şey.</em>',
+      faq_p: 'Tekne almak ömürlük bir karardır. Aklınıza gelebilecek hemen her sorunun cevabı aşağıda — değilse, bizi arayın.',
+      faq1_q: 'Sally 24\'ün teslim süresi ne kadar?',
+      faq1_a: '<p>Sözleşme imzasından teslim anına kadar ortalama 8–10 ay. Bu süre üretim takviminin yoğunluğuna ve seçtiğiniz opsiyonel donanımlara göre değişebilir; net bir tarih sözleşme aşamasında yazılı olarak belirlenir.</p>',
+      faq2_q: 'Sally\'i kişiselleştirebilir miyim? Hangi seçenekler var?',
+      faq2_a: '<p>Evet. Tekne renk paletini, iç döşeme tonlarını, ahşap kaplamayı ve opsiyonel donanım kalemlerini sahibinin tercihine göre seçiyoruz. Renk ve donanım seçimleri, üretimin ilgili aşamasından önce kesinleştirilir; sonradan değişiklik istenirse Tarafların yazılı mutabakatı ile uygulanabilir.</p>',
+      faq3_q: 'Ödeme planı nasıl işliyor?',
+      faq3_a: '<p>Toplam bedeli 4 aşamada öderiz: sipariş avansı, omurga yatırımı, üst yapı montajı, ve teslim. Her aşamadaki yüzdeler sözleşmede netleştirilir. Tüm ödemeler EFT/havale ile, OOE Yatçılık\'ın banka hesabına yapılır.</p>',
+      faq4_q: 'Garanti süresi nedir? Servisi nasıl alıyorum?',
+      faq4_a: '<p>Marincraft tarafından imal edilen tüm bileşenler için teslim tarihinden itibaren 24 ay genel garanti veriyoruz. Motor, jeneratör ve elektronik aksam gibi üçüncü taraf donanımlar, ilgili üreticinin garanti süresine tabidir. Garanti kapsamındaki tamir veya bakımlar Marincraft tersanesinde, masraflar bize ait olmak üzere yapılır.</p>',
+      faq5_q: 'Atölyeyi ziyaret edebilir miyim?',
+      faq5_a: '<p>Tabii ki. Sally hakkında konuşmak için en güzel yer tersane. Bir telefon ya da WhatsApp mesajı ile randevulaşıp Menderes\'e gelebilirsiniz; bir çayın eşliğinde teknenin yapımını görür, sorularınızı bizzat sorabilirsiniz.</p>',
+      faq6_q: 'Tekneyi teslim öncesi denemek mümkün mü?',
+      faq6_a: '<p>Evet, teslim öncesi sea trial / deniz testi yapıyoruz. Minimum 2 saatlik test sırasında motor performansı, sistem fonksiyonları ve seyir özellikleri sizin huzurunuzda kontrol edilir. Onayınız teslimın ön şartıdır.</p>',
+      faq7_q: 'Tekne nereye teslim ediliyor?',
+      faq7_a: '<p>Standart teslim yeri Marincraft tersanesi (Menderes / İzmir). İsterseniz, nakliye ve sigorta masrafları size ait olmak üzere başka bir limana da teslim edebiliriz.</p>',
+      faq8_q: 'Hangi belgeler tekne ile birlikte veriliyor?',
+      faq8_a: '<p>Teslim anında tüm belgeler tarafınıza iletilir: garanti belgeleri, üretici kullanım kılavuzları, sicil/karine bilgileri (HIN), motor ve donanım sertifikaları, sea trial protokolü ve teslim tutanağı.</p>',
 
       // Document
       _title: 'Marincraft — Sally 24 · El Yapımı Türk Teknesi'
@@ -2450,6 +2279,8 @@
       nav_equipment: 'Equipment',
       nav_interior: 'Cabin',
       nav_tersane: 'Workshop',
+      nav_process: 'Order',
+      nav_faq: 'FAQ',
       nav_contact: 'Contact',
       nav_cta: 'Get in Touch',
 
@@ -2458,7 +2289,7 @@
       hero_h1: 'Sally<span class="num">24</span><br/><em>the sea\'s small grace.</em>',
       hero_lede: '8.10 metres. Two adults, two children. One cabin, one galley, an endless Mediterranean. Hand-built at the Marincraft yard in İzmir.',
       hero_cta1: 'Meet Sally →',
-      hero_cta2_en: 'Get in Touch',
+      hero_cta2: 'How to Order',
       scroll_cue: 'Scroll Down',
 
       // STATS
@@ -2571,6 +2402,7 @@
       footer_cabin: 'Cabin',
       footer_workshop_h4: 'Workshop',
       footer_handcraft: 'Handcraft',
+      footer_process: 'How to Order',
       footer_visit: 'Visit',
       footer_contact_h4: 'Contact',
       footer_copyright: '© 2026 Marincraft Boats — Menderes / İzmir',
@@ -2578,6 +2410,47 @@
 
       // WhatsApp
       wa_label: 'Message us on WhatsApp',
+
+      // PROCESS
+      process_eyebrow: 'How to Order',
+      process_h2: 'Becoming a <em>Sally</em> owner, in five steps.',
+      process_p: 'A Sally is not ordered overnight. The journey begins with a conversation at our workshop and ends the day her keys are in your hand — measured, transparent, and shared throughout.',
+      step1_h3: 'Conversation',
+      step1_meta: 'Workshop Visit',
+      step1_p: 'A first meeting at the yard. Over tea, we talk about Sally, your way of cruising, and what you imagine.',
+      step2_h3: 'Design',
+      step2_meta: 'Personalisation',
+      step2_p: 'Colour, upholstery, optional fittings. The stage where Sally begins to take her owner\'s shape.',
+      step3_h3: 'Contract',
+      step3_meta: 'Putting It in Writing',
+      step3_p: 'Details, build schedule and payment plan are formalised. The order deposit is taken at this stage.',
+      step4_h3: 'Build',
+      step4_meta: 'At the Workshop',
+      step4_p: 'Hull lay-up, superstructure, systems, final finish. Eight to ten months of careful handcraft.',
+      step5_h3: 'Delivery',
+      step5_meta: 'Sea Trial &amp; Keys',
+      step5_p: 'Sea trial, delivery protocol, the handing of keys. From this moment, Sally is yours.',
+
+      // FAQ
+      faq_eyebrow: 'Frequently Asked',
+      faq_h2: 'Everything you might <em>wonder.</em>',
+      faq_p: 'A boat is a decision for a lifetime. The answers to most questions are below — if not, please call.',
+      faq1_q: 'How long does Sally 24 take to build?',
+      faq1_a: '<p>From contract to delivery, eight to ten months on average. The exact timeline depends on the workshop calendar and the optional fittings you choose; a precise date is set in writing during the contract stage.</p>',
+      faq2_q: 'Can I personalise my Sally? What are the options?',
+      faq2_a: '<p>Yes. Hull and trim colours, interior upholstery, timber finishes, and the optional equipment list are all chosen to your preferences. Choices are confirmed before the relevant production stage; later changes are possible by mutual written agreement.</p>',
+      faq3_q: 'How does the payment plan work?',
+      faq3_a: '<p>The total price is paid in four stages: order deposit, hull lay-up, superstructure, and delivery. Each stage\'s percentage is set in the contract. All payments are by bank transfer to OOE Yatçılık\'s account.</p>',
+      faq4_q: 'What is the warranty? How is service handled?',
+      faq4_a: '<p>All components built by Marincraft carry a 24-month warranty from the delivery date. Engine, generator, electronics and other third-party components are subject to their respective manufacturer warranties. Warranty work is done at the Marincraft workshop, at our expense.</p>',
+      faq5_q: 'Can I visit the workshop?',
+      faq5_a: '<p>Of course. The best place to talk about Sally is at the yard. A phone call or WhatsApp message to schedule a visit is all it takes. We would be happy to host you in Menderes — to walk you through the build over a glass of tea.</p>',
+      faq6_q: 'Can I sea-trial the boat before delivery?',
+      faq6_a: '<p>Yes — a sea trial is part of every handover. During a minimum two-hour test, engine performance, system function, and seakeeping are verified in your presence. Your sign-off is the precondition for delivery.</p>',
+      faq7_q: 'Where is the boat delivered?',
+      faq7_a: '<p>The standard place of delivery is the Marincraft workshop (Menderes / İzmir). At your request, delivery to another port is possible — transport and insurance costs being yours.</p>',
+      faq8_q: 'What documents come with the boat?',
+      faq8_a: '<p>At delivery, you receive: warranty certificates, manufacturer manuals, registration / hull identification number (HIN), engine and equipment certificates, the sea trial protocol, and the delivery report.</p>',
 
       // Document
       _title: 'Marincraft — Sally 24 · Handcrafted Turkish Boat'
